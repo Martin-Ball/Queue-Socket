@@ -8,8 +8,6 @@ const btnEnviar  = document.querySelector('#btnEnviar');
 
 const socket = io();
 
-
-
 socket.on('connect', () => {
     // console.log('Conectado');
 
@@ -30,7 +28,6 @@ socket.on('enviar-mensaje', (payload) => {
     console.log( payload )
 })
 
-
 btnEnviar.addEventListener( 'click', () => {
 
     const mensaje = txtMensaje.value;
@@ -43,5 +40,4 @@ btnEnviar.addEventListener( 'click', () => {
     socket.emit( 'enviar-mensaje', payload, ( id ) => {
         console.log('Desde el server', id );
     });
-
 });
